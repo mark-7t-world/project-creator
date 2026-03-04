@@ -42,6 +42,14 @@ project-types/private/
 project-types/public/*/reference-projects.md
 
 # =============================================================================
+# WORKBENCH PREFERENCES
+# =============================================================================
+
+# Companion Workbench stores user preferences here (D56).
+# Personal settings — not shared across machines or users.
+.workbench/
+
+# =============================================================================
 # USER-SPECIFIC / LOCAL FILES
 # =============================================================================
 
