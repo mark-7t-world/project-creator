@@ -234,7 +234,38 @@ Remaining gaps (if any):
 
 ---
 
-## Step 7: Update Tracking
+## Step 7: Log the Application
+
+After remediation, append a structured entry to `tracking/capability-applications.md` (relative to the current working directory).
+
+**If `tracking/capability-applications.md` does not exist**, create it with this header first:
+
+```markdown
+# Capability Applications
+
+Log of capability kit applications — what was applied, where, and what was learned.
+
+---
+```
+
+**Then append this entry:**
+
+```markdown
+## [YYYY-MM-DD] — {capability_name} → {target_description}
+
+| Field | Value |
+|-------|-------|
+| Capability | {capability_name} |
+| Target | {target_description} |
+| Standards met | {count from gap analysis} |
+| Gaps found | {count}: {brief list of gap names} |
+| Adaptations | {what was adapted vs applied as-is} |
+| New patterns | {anything surprising discovered during the application} |
+```
+
+---
+
+## Step 8: Update Tracking
 
 After remediation:
 
@@ -245,5 +276,5 @@ Report:
 ```
 Capability applied: {capability_name} → {target_description}
 Changes: {count} applied, {count} skipped
-Tracking: insights-log.md updated
+Tracking: insights-log.md updated, capability-applications.md updated
 ```
