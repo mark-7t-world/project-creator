@@ -31,8 +31,6 @@ How to use Project Creator to build AI companions through reverse prompting. Thi
 /contextualize [book-search-term] [client/companion]  Synthesize for specific companion
 /gaps                                             Check what's missing against standards
 /gaps [client/companion]                          Check gaps for specific companion
-/checkpoint                                       Capture session state
-/checkpoint [client/companion]                    Checkpoint specific companion
 ```
 
 ### Cultivation
@@ -47,10 +45,20 @@ How to use Project Creator to build AI companions through reverse prompting. Thi
 /build [client/companion]                         Build specific companion
 ```
 
-### Kit Management
+### Session Hygiene
+```
+/brief                                            Session orientation — where are we, what to do
+/brief [client/companion]                         Brief for specific companion
+/checkpoint                                       Capture session state
+/checkpoint [client/companion]                    Checkpoint specific companion
+```
+
+### Ecosystem
 ```
 /capture-capability public [name] [description]   Extract capability to public kits
 /capture-capability client [name] [description]   Extract capability to client kit
+/apply-capability [name] [target]                 Audit target against capability, remediate gaps
+/ask [companion-name] [topic]                     Compose structured handoff to another companion
 ```
 
 ---
