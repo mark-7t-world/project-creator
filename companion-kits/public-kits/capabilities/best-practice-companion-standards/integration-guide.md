@@ -20,9 +20,11 @@ This gets the companion connected to the ecosystem. Refinement happens through u
 
 ## Step 1: Copy Universal Skills
 
-The three universal skills are identical across all companions. Copy them from the CAIO BaaS companion (the reference implementation).
+The three universal skills are identical across all companions. Copy them from the Knowledge Explorer companion (the open-source reference implementation).
 
-**Source:** `/Users/sonjayatandon/dev/project-creator/companions/consortium.team/caio-baas-companion/.claude/skills/`
+**Source:** `companions/common/knowledge-explorer/.claude/skills/`
+
+> **Don't have the Knowledge Explorer?** Clone it from the consortium.team org into your `companions/common/` directory.
 
 **Copy these directories as-is:**
 
@@ -257,19 +259,23 @@ Update the skills count if the CLAUDE.md tracks it.
 
 ## Examples
 
-### Reference Implementation: CAIO BaaS Companion
+### Reference Implementation: Knowledge Explorer Companion
 
-The most complete implementation. 16 skills including all 5 standard skills. Companion guide follows the capability standard with command quick reference first, Mermaid lifecycle diagram, situation-driven tables, three-layer agent architecture section.
+The open-source reference implementation. Clone from the consortium.team org into `companions/common/`. Contains all universal skills as the canonical source for ecosystem propagation.
+
+### Example: Full Implementation
+
+A fully implemented companion has 16+ skills including all 5 standard skills. Companion guide follows the capability standard with command quick reference first, Mermaid lifecycle diagram, situation-driven tables, three-layer agent architecture section.
 
 - `/brief` dispatches a Sonnet agent (session-analyst) with strategic-analysis reference skill — reads 10+ files, produces three-layer synthesis
 - `/checkpoint` writes to 6 tracking files with sequential insight IDs and pillar tags
-- Universal skills are the source of truth for ecosystem propagation
+- Universal skills match the Knowledge Explorer reference
 
-### Partial Implementation: Software Architect Companion
+### Example: Partial Implementation
 
-Has `/brief` and `/checkpoint` (fitted to architecture domain) but lacks the three universal skills. Has a companion guide. To complete:
+Has `/brief` and `/checkpoint` (fitted to its domain) but lacks the three universal skills. Has a companion guide. To complete:
 
-1. Copy `/capture-capability`, `/apply-capability`, `/ask` from CAIO BaaS
+1. Copy `/capture-capability`, `/apply-capability`, `/ask` from Knowledge Explorer
 2. Add Ecosystem Maturation section to companion-guide.md
 3. Update CLAUDE.md
 

@@ -47,7 +47,7 @@ These skills do not vary between companions. They serve the ecosystem, not the i
 | `/apply-capability` | Apply a capability's standards to a target artifact — gap analysis + remediation | The audit-and-fix loop is the same mechanism everywhere |
 | `/ask` | Compose a structured handoff message to another companion | Cross-companion communication format is standardized so any companion can receive and process it |
 
-**Source of truth:** The CAIO BaaS companion (`companions/consortium.team/caio-baas-companion/.claude/skills/`) is the reference implementation. When these skills are updated, propagate changes to all companions.
+**Source of truth:** The Knowledge Explorer companion (`companions/common/knowledge-explorer/.claude/skills/`) is the open-source reference implementation. If you don't have it, clone it from the consortium.team org into `companions/common/`. When these skills are updated, propagate changes to all companions.
 
 ### Fitted Skills (Adapted Per Companion)
 

@@ -19,9 +19,9 @@ The target companion name and optional topic/question.
 
 Examples:
 ```
-/ask client-tracker success map framing for Neycher
-/ask software-architect-companion workbench Floor 1.2 requirements
-/ask se-companion-workbench bug in session state detection
+/ask knowledge-explorer what anchoring techniques work for technical writing
+/ask my-companion how should I structure the onboarding flow
+/ask design-companion accessibility requirements for the dashboard
 ```
 
 ---
@@ -31,11 +31,11 @@ Examples:
 Search for the companion by name. Resolution order:
 
 1. **Scan all companions** — use the Glob tool to find all companion CLAUDE.md files:
-   Pattern: `**/CLAUDE.md` with path `/Users/sonjayatandon/dev/project-creator/companions`
+   Pattern: `**/CLAUDE.md` with path `companions`
    The parent directory of each match is a companion.
 2. **Exact path** — if the argument looks like a path, use it directly.
 
-Match `$ARGUMENTS[0]` against directory names. Partial matches are fine (`client-tracker` matches `client-tracker`, `tracker` matches `client-tracker`).
+Match `$ARGUMENTS[0]` against directory names. Partial matches are fine (`knowledge` matches `knowledge-explorer`, `design` matches `design-companion`).
 
 **If no match found:**
 ```
@@ -94,7 +94,6 @@ Read files that give the target companion what it needs to act. Read ONLY what's
 - This companion's `tracking/hypothesis.md` (decision lens)
 
 **Read if relevant to the message:**
-- Client profile at `/Users/sonjayatandon/ConsortiumTeam_ClientFiles/ActiveClients/[client]/CLIENT_PROFILE.md`
 - This companion's `tracking/opportunity-tree.md` (if the message connects to an opportunity)
 - This companion's `tracking/insights-log.md` (if referencing specific insights)
 - The target companion's relevant templates (if the message requests a specific deliverable)
