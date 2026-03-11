@@ -11,3 +11,5 @@ Each ticket has at least one output_files entry and at least one acceptance_crit
 Ticket IDs are sequential integers (1, 2, 3). The blocked_by field is a list of ticket IDs or empty [].
 
 Status values: pending, in_progress, completed, skipped.
+
+Linear fields (linear_id, linear_parent_issue) are optional. Omit them when Linear is not configured.

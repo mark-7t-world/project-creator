@@ -10,7 +10,7 @@ argument-hint: "[client/companion]"
 
 # /plan -- Consolidate Requirements into Implementation Plan
 
-Transform captured requirements into a structured specification and actionable Linear tickets.
+Transform captured requirements into a structured specification and actionable tickets (optionally synced to Linear).
 
 **Usage:**
 - `/plan` -- Use current companion
@@ -338,7 +338,7 @@ Create tickets for each discrete piece of work.
 
 ### Step 7: Validate All Tickets
 
-Before writing to Linear, verify each ticket against the companion-standards ticket schema:
+Before finalizing, verify each ticket against the companion-standards ticket schema:
 
 **Checklist for each ticket:**
 - [ ] Title is imperative ("Build X", not "Building X" or "X")
@@ -359,7 +359,7 @@ Before writing to Linear, verify each ticket against the companion-standards tic
 - Issue: [What's wrong]
 - Recommendation: [How to fix]
 
-Would you like me to revise these tickets before creating them in Linear?
+Would you like me to revise these tickets before finalizing?
 ```
 
 ---
@@ -384,7 +384,7 @@ Proceeding to Phase 3.
 
 ### Step 8: Present Plan for Review
 
-Before writing to Linear, present the complete plan:
+Before finalizing, present the complete plan:
 
 ```
 ## Implementation Plan: [companion]
@@ -419,24 +419,26 @@ Before writing to Linear, present the complete plan:
 
 ---
 
-**Review this plan before I create Linear tickets.**
+**Review this plan before I finalize tickets.**
 
 Questions:
 1. Does the scope look right?
 2. Any missing pieces?
 3. Should any tickets be combined or split further?
-4. Which Linear project should I use? (Or should I create a new one?)
+4. Would you like to track these in Linear? If so, which project?
 ```
 
 **Wait for user approval before proceeding to Step 9.**
 
 ---
 
-## Phase 4: Gate -- Write to Linear and Finalize
+## Phase 4: Gate -- Finalize Tickets
 
-### Step 9: Write to Linear
+### Step 9: Create Tickets (and optionally sync to Linear)
 
 After user approves:
+
+**If user wants Linear tracking:**
 
 1. **Get/create Linear project:**
    - Ask user which Linear project to use
@@ -457,6 +459,8 @@ After user approves:
    - Tickets with no dependencies get higher priority
    - Follow the execution sequence
 
+**If user does NOT want Linear tracking:** Skip steps 1-4 above. Omit `linear_parent_issue` and `linear_id` fields from tickets.yaml.
+
 5. **Create local tickets file:**
 
    Write to `companions/[client]/[companion]/docs/plans/tickets.yaml`
@@ -471,11 +475,11 @@ After user approves:
    project_name: "[human-readable project name]"
    project_path: "/absolute/path/to/companions/[client]/[companion]"
    spec_file: "docs/plans/YYYY-MM-DD-implementation-spec.md"
-   linear_parent_issue: "CON-XX"
+   linear_parent_issue: "CON-XX"  # Omit if not using Linear
 
    tickets:
      - id: 1
-       linear_id: "CON-XX"
+       linear_id: "CON-XX"  # Omit if not using Linear
        title: "Ticket title"
        size: "S"
        status: "pending"
@@ -492,7 +496,7 @@ After user approves:
          - "Second criterion -- specific and verifiable"
 
      - id: 2
-       linear_id: "CON-XX"
+       linear_id: "CON-XX"  # Omit if not using Linear
        title: "Second ticket"
        size: "M"
        status: "pending"
@@ -536,8 +540,8 @@ After user approves:
 
 ```
 Phase 4 Complete. Collected values:
-- Linear parent issue: [CON-XX]
-- Linear child issues: [list CON-XX IDs]
+- Linear parent issue: [CON-XX or "not using Linear"]
+- Linear child issues: [list CON-XX IDs or "N/A"]
 - tickets.yaml written: [path]
 - build-progress.md written: [path]
 - Schema compliance: VERIFIED
@@ -556,14 +560,14 @@ After tickets are created:
 
 **Spec:** docs/plans/YYYY-MM-DD-implementation-spec.md
 
-**Linear Project:** [Project name with link]
+**Linear Project:** [Project name with link, or "Not using Linear"]
 
 **Tickets created:** [N] tickets
 
 | # | Ticket | Size | Status | Linear |
 |---|--------|------|--------|--------|
-| 1 | [Title] | S | Ready | [ABC-123](url) |
-| 2 | [Title] | M | Blocked by 1 | [ABC-124](url) |
+| 1 | [Title] | S | Ready | [ABC-123](url) or N/A |
+| 2 | [Title] | M | Blocked by 1 | [ABC-124](url) or N/A |
 ...
 
 **Execution order:**
@@ -584,7 +588,7 @@ After tickets are created:
 **Ready for `/build` when you want to start implementation.**
 
 Next steps:
-- Review tickets in Linear
+- Review tickets (in Linear if configured)
 - Adjust priorities if needed
 - Run `/build` to start executing tickets
 ```
