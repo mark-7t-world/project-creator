@@ -87,6 +87,17 @@ project-types/public/*/reference-projects.md
 # OS AND EDITOR FILES
 # =============================================================================
 
+# Microsoft Office temp/lock files
+~$*
+.~lock.*
+
+# Loose client documents in root (should be in companions/ or companion-kits/)
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+/7t-world-architecture*
+
 # macOS
 .DS_Store
 .AppleDouble
